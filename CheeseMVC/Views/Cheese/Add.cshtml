@@ -1,0 +1,40 @@
+﻿
+@{
+   // Layout = null;
+}
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/CheeseMVC.styles.css" asp-append-version="true" />
+
+@model CheeseMVC.ViewModel.AddCheeseViewModel
+
+<h1>@ViewBag.title</h1>
+
+<form asp-controller="Cheese" asp-action="Add" method="post">
+    <div class="form group">
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" class="form-control"/>
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div class="form group">
+        <label asp-for="Description" class="form-label"></label>
+        <input asp-for="Description" class="form-control"/>
+        <span asp-validation-for="Description"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Type"></label>
+        <select asp-for="Type" asp-items="Model.CheeseTypes"></select>
+    </div>
+
+    <button type="submit" class="btn btn-outline-primary">Add Cheese</button>
+    
+</form>
+<br />
+<a class="btn btn-outline-danger" asp-controller="Cheese" asp-action="Index">Cancelar</a>
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+  
